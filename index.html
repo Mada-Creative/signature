@@ -473,26 +473,24 @@
         method: "POST",
         body: data
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("FormSubmit Error");
-        }
+      .then(() => {
+        // نجاح رغم أي رد غريب من FormSubmit
+        form.reset();
     
-        // البوب اب
         const overlay = document.getElementById("popupOverlay");
         const popup = document.getElementById("popupBox");
     
         overlay.style.display = "block";
         setTimeout(() => popup.classList.add("show"), 10);
-    
-        form.reset();
       })
       .catch(error => {
-        console.error(error);
-        alert("⚠ שגיאה בשליחה. בדוק שוב.");
+        // أخطاء إنترنت فقط — بدون تنبيه
+        console.error("Network Error:", error);
       });
     });
     </script>
+    
+    
     
 
 <script>
