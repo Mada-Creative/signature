@@ -83,6 +83,9 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((el) => el.classList.add("in-view"));
 }
 
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
 // دعم الضغط على الموبايل لكروت "למה לבחור בנו"
 document.querySelectorAll(".flip-card").forEach((card) => {
   let flipped = false;

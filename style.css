@@ -748,13 +748,33 @@
     gap: 1.5rem;
   }
   
-  .step-card {
-    background: #ffffff;
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-soft);
-    position: relative;
+/* الحالة قبل الظهور */
+.step-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    transform-style: preserve-3d;
+    opacity: 0;
+    transition: 0.7s ease;
   }
+  
+  /* فليب لليمين للعناصر الفردية */
+  .step-card:nth-child(odd) {
+    transform: perspective(900px) rotateY(-70deg) translateY(30px);
+  }
+  
+  /* فليب لليسار للعناصر الزوجية */
+  .step-card:nth-child(even) {
+    transform: perspective(900px) rotateY(70deg) translateY(30px);
+  }
+  
+  /* الحالة بعد الظهور */
+  .step-card.in-view {
+    opacity: 1;
+    transform: perspective(900px) rotateY(0deg) translateY(0);
+  }
+  
 
   .step-card h3 {
 font-size: 28px;
