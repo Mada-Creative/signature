@@ -862,6 +862,23 @@ font-size: 28px;
   .footer-note {
     color: rgba(255, 255, 255, 0.6);
   }
+
+
+.footer-dev {
+    font-size: 0.95rem;
+    color: #ffffff;
+    opacity: 0.75;
+  }
+  
+  .footer-dev a {
+    color: #38C2B5; /* فيروزي */
+    text-decoration: none;
+    font-weight: 700;
+  }
+  
+  .footer-dev a:hover {
+    opacity: 0.9;
+  }
   
   /* أنيميشن الظهور على السكورول */
   .reveal {

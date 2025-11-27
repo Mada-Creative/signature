@@ -394,48 +394,80 @@
         </p>
 
         <ul class="contact-list">
-          <li><strong>טלפון:</strong> <a href="tel:0500000000">050-0000000</a></li>
-          <li><strong>WhatsApp:</strong> <a href="https://wa.me/972500000000" target="_blank" rel="noopener">שליחת הודעה</a></li>
-          <li><strong>אימייל:</strong> <a href="mailto:info@signature-cleaning.co.il">info@signature-cleaning.co.il</a></li>
+          <li><strong>טלפון:</strong> <a href="tel:043005066">043005066</a></li>
+          <li><strong>WhatsApp:</strong> <a href="https://wa.me/972542746666" target="_blank" rel="noopener">שליחת הודעה</a></li>
+          <li><strong>אימייל:</strong> <a href="mailto:info@signature-cleaning.co.il">signaturehr2025@gmail.com</a></li>
           <li><strong>פייסבוק:</strong> <a href="#" target="_blank" rel="noopener">עמוד החברה</a></li>
           <li><strong>אינסטגרם:</strong> <a href="#" target="_blank" rel="noopener">@signature_cleaning</a></li>
         </ul>
       </div>
 
-      <form class="contact-form">
-        <div class="form-row">
-          <label for="name">שם מלא</label>
-          <input id="name" type="text" required placeholder="שם מלא" />
-        </div>
-        <div class="form-row">
-          <label for="company">שם העסק / הארגון</label>
-          <input id="company" type="text" placeholder="שם העסק" />
-        </div>
-        <div class="form-row">
-          <label for="phone">טלפון</label>
-          <input id="phone" type="tel" required placeholder="050-0000000" />
-        </div>
-        <div class="form-row">
-          <label for="area">אזור</label>
-          <input id="area" type="text" placeholder="חדרה, עמק חפר, קיסריה..." />
-        </div>
-        <div class="form-row">
-          <label for="message">באיזה שירות אתם מעוניינים?</label>
-          <textarea id="message" rows="4" placeholder="משרדים, מבנה מגורים, מוסד ציבורי, אחרי שיפוץ..."></textarea>
-        </div>
-        <button type="submit" class="btn primary full-width">שליחה</button>
-        <!-- <p class="form-note">* טופס זה להמחשה – חבר אותו ל-Formspree / Backend בהמשך.</p> -->
-      </form>
-    </div>
-  </section>
+<form 
+  class="contact-form" 
+  action="https://formsubmit.co/signaturehr2025@gmail.com" 
+  method="POST"
+>
+  <!-- منع الكابتشا -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- إعادة التوجيه بعد الإرسال (غيره حسب الدومين عندك) -->
+  <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+
+  <div class="form-row">
+    <label for="name">שם מלא</label>
+    <input id="name" type="text" name="שם מלא" required placeholder="שם מלא" />
+  </div>
+
+  <div class="form-row">
+    <label for="company">שם העסק / הארגון</label>
+    <input id="company" type="text" name="שם העסק / הארגון" placeholder="שם העסק" />
+  </div>
+
+  <div class="form-row">
+    <label for="phone">טלפון</label>
+    <input id="phone" type="tel" name="טלפון" required placeholder="050-0000000" />
+  </div>
+
+  <div class="form-row">
+    <label for="area">אזור</label>
+    <input id="area" type="text" name="אזור" placeholder="חדרה, עמק חפר, קיסריה..." />
+  </div>
+
+  <div class="form-row">
+    <label for="message">באיזה שירות אתם מעוניינים?</label>
+    <textarea id="message" rows="4" name="שירות מבוקש" placeholder="משרדים, מבנה מגורים, מוסד ציבורי, אחרי שיפוץ..."></textarea>
+  </div>
+
+  <button type="submit" class="btn primary full-width">שליחה</button>
+</form>
+</section>
 
   <!-- فوتر -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Signature – כל הזכויות שמורות.</p>
-      <p class="footer-note">חתומים על העבודה והשירות שלנו.</p>
+  
+      <p class="footer-copy">
+        © <span id="year"></span> Signature – כל הזכויות שמורות.
+      </p>
+  
+      <p class="footer-note">
+        חתומים על העבודה והשירות שלנו.
+      </p>
+  
+      <p class="footer-dev">
+        Designed & Developed by 
+        <a href="https://www.instagram.com/madabytarek/" target="_blank" rel="noopener noreferrer">
+          MadaByTarek
+        </a>
+      </p>
+  
     </div>
   </footer>
+  
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  
 
   <script src="script.js"></script>
 </body>
