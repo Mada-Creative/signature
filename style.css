@@ -892,6 +892,62 @@ font-size: 28px;
     transform: translateY(0);
   }
 
+  /* الخلفية */
+#popupOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+  }
+  
+  /* البوكس */
+  #popupBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: 0.3s ease;
+    font-family: "Assistant", sans-serif;
+  }
+  
+  #popupBox.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  #popupBox h3 {
+    margin-bottom: 10px;
+    color: #0a2540;
+  }
+  
+  #popupBox p {
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  #popupBox button {
+    background: linear-gradient(135deg, #38C2B5, #5AAAD8);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+
 
   
   /* ريسبونسيف */
