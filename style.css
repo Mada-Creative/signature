@@ -967,6 +967,40 @@ font-size: 28px;
     font-weight: 600;
   }
   
+  /* خلفية اللودينغ */
+#formLoader {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* صورة اللوجو */
+  #formLoader img {
+    width: 110px;
+    filter: drop-shadow(0px 0px 6px rgba(0,0,0,0.15));
+    animation: spin 1.4s linear infinite;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: spin 1.4s linear infinite, fadeIn 0.4s ease forwards;
+  }
+  
+  /* دوران */
+  @keyframes spin {
+    from { transform: rotate(0deg) scale(0.8); }
+    to   { transform: rotate(360deg) scale(0.8); }
+  }
+  
+  /* ظهور ناعم */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
 
 
   

@@ -434,6 +434,13 @@
       
         <button type="submit" class="btn primary full-width">שליחה</button>
       </form>
+      <!-- Loading Overlay -->
+<div id="formLoader">
+    <div class="loader-logo">
+      <img src="signature.png" alt="Signature Logo">
+    </div>
+  </div>
+  
       
       
     
@@ -469,26 +476,33 @@
       const form = e.target;
       const data = new FormData(form);
     
+      // Show loader
+      document.getElementById("formLoader").style.display = "flex";
+    
       fetch("https://formsubmit.co/ajax/signaturehr2025@gmail.com", {
         method: "POST",
         body: data
       })
       .then(() => {
-        // نجاح رغم أي رد غريب من FormSubmit
         form.reset();
     
+        // Hide loader
+        document.getElementById("formLoader").style.display = "none";
+    
+        // Show popup
         const overlay = document.getElementById("popupOverlay");
         const popup = document.getElementById("popupBox");
     
         overlay.style.display = "block";
         setTimeout(() => popup.classList.add("show"), 10);
       })
-      .catch(error => {
-        // أخطاء إنترنت فقط — بدون تنبيه
-        console.error("Network Error:", error);
+      .catch(err => {
+        console.error(err);
+        document.getElementById("formLoader").style.display = "none";
       });
     });
     </script>
+    
     
     
     
