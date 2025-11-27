@@ -435,6 +435,11 @@
     box-shadow: var(--shadow-soft);
     border-inline-start: 4px solid var(--primary);
   }
+  .founder-card img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+  }
   
   
   /* بطاقات عامة */
