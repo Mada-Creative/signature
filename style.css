@@ -191,7 +191,7 @@
   .nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-size: 0.95rem;
+    font-size: 18px;
     padding-block: 0.25rem;
     position: relative;
     transition: var(--transition-fast);
@@ -743,7 +743,8 @@
   
   .areas-list li {
     margin-bottom: 0.5rem;
-    font-size: 22px;
+    font-size: 28px;
+    list-style: "📍";
   }
   
   /* process */
@@ -805,11 +806,36 @@ font-size: 28px;
   .contact-section {
     background: linear-gradient(135deg, rgba(90, 170, 216, 0.06), rgba(56, 194, 181, 0.08));
   }
+
+  .contact-list .social-item {
+  display: flex;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  margin: 10px 0;
+  list-style: none;
+}
+
+.social-icons a svg {
+  transition: transform 0.25s ease, stroke 0.25s ease;
+  cursor: pointer;
+}
+
+.social-icons a:hover svg {
+  transform: scale(1.18);
+  stroke: #38c2b5; /* لون Gradient تبع الهوية لو بدك */
+}
+
   
   .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
-    gap: 2.5rem;
+    gap: 1rem;
     align-items: flex-start;
   }
   
@@ -821,6 +847,7 @@ font-size: 28px;
   
   .contact-list li {
     margin-bottom: 0.4rem;
+    font-size: 18px;
   }
   
   .contact-list a {
