@@ -100,54 +100,6 @@ document.querySelectorAll(".flip-card").forEach((card) => {
   });
 });
 
-// سلايدر الهيرو
-const slides = document.querySelectorAll(".hero-slide");
-const dotsContainer = document.querySelector(".hero-dots");
-
-let currentSlide = 0;
-let sliderInterval;
-
-// إنشاء النقاط
-slides.forEach((_, index) => {
-  const btn = document.createElement("button");
-  if (index === 0) btn.classList.add("active");
-  btn.addEventListener("click", () => goToSlide(index, true));
-  dotsContainer.appendChild(btn);
-});
-
-const dots = dotsContainer.querySelectorAll("button");
-
-function goToSlide(index, manual = false) {
-  slides[currentSlide].classList.remove("active");
-  dots[currentSlide].classList.remove("active");
-
-  currentSlide = index;
-
-  slides[currentSlide].classList.add("active");
-  dots[currentSlide].classList.add("active");
-
-  if (manual) {
-    restartSlider();
-  }
-}
-
-function nextSlide() {
-  const nextIndex = (currentSlide + 1) % slides.length;
-  goToSlide(nextIndex);
-}
-
-function startSlider() {
-  sliderInterval = setInterval(nextSlide, 7000);
-}
-
-function restartSlider() {
-  clearInterval(sliderInterval);
-  startSlider();
-}
-
-if (slides.length > 1) {
-  startSlider();
-}
 
 // منع الإرسال الفعلي للفورم (لحد ما تربطه ببك إند)
 const contactForm = document.querySelector(".contact-form");

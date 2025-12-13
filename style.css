@@ -237,145 +237,278 @@
     width: 60%;
     margin-inline: auto;
   }
-  
-  /* الهيرو */
-  .hero {
-    position: relative;
-    min-height: 52vh;
-    overflow: hidden;
-  }
-  
-  .hero-slider {
-    position: relative;
-    height: 100%;
-  }
-  
-  .hero-slide {
-    position: absolute;
-    inset: 0;
+  /* =========================
+   HERO SECTION
+========================= */
+.hero {
+  position: relative;
+  min-height: 52vh;
+  overflow: hidden;
+}
+
+.hero-slider {
+  position: relative;
+  height: 100%;
+}
+
+/* خلفية الهيرو + أنيميشن الدخول */
+.hero-animate .hero-slide.active {
+  animation: heroZoomIn 1.4s ease-out forwards;
+  transform-origin: center center;
+  opacity: 0;
+}
+
+@keyframes heroZoomIn {
+  0% {
+    transform: scale(1.08);
     opacity: 0;
-    transform: scale(1.02);
-    height: 72vh;
-    transition: opacity 0.8s ease, transform 1s ease;
-    background-size: cover;
-    background-position: center top !important;
-    display: flex;
-    align-items: stretch;
   }
-  
-  .hero-slide.active {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 1; /* لأنه سلايد واحد فقط */
+  transform: scale(1);
+  height: 72vh;
+  background-size: cover;
+  background-position: center top !important;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-slide.active {
+  position: relative;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(152, 240, 222, 0.25), transparent),
+              linear-gradient(120deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45));
+}
+
+.hero-animate .hero-overlay {
+  animation: overlayFade 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes overlayFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* =========================
+   HERO WRAPPER
+========================= */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1); /* بداية الزوم */
+  opacity: 0;
+  animation: heroBgZoom 2s ease-out forwards;
+  display: flex;
+  align-items: center;
+}
+
+/* الخلفية */
+@keyframes heroBgZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
     opacity: 1;
     transform: scale(1);
-    position: relative;
   }
-  
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(152, 240, 222, 0.25), transparent),
-                linear-gradient(120deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45));
+}
+
+/* =========================
+   OVERLAY
+========================= */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.45));
+  opacity: 0;
+  animation: overlayFade 1.6s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================
+   TEXT CONTENT
+========================= */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  max-width: 650px;
+  margin-inline: auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hero-animate .hero-kicker,
+.hero-animate .hero-title,
+.hero-animate .hero-subtitle,
+.hero-animate .hero-actions {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* kicker */
+.hero-animate .hero-kicker {
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* title */
+.hero-animate .hero-title {
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+/* subtitle */
+.hero-animate .hero-subtitle {
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+}
+
+/* buttons */
+.hero-animate .hero-actions {
+  animation: fadeUpButtons 0.8s ease-out forwards;
+  animation-delay: 1.1s;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
   }
-  
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
-    padding: 2.5rem 0 3rem;
-    max-width: min(640px, 100% - 32px);
-    margin-inline: auto;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero-kicker {
-    font-size: 0.95rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    opacity: 0.9;
-    margin-bottom: 0.75rem;
+}
+
+@keyframes fadeUpButtons {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
   }
-  
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.03);
+  }
+  100% {
+    opacity: 1; /* ← مهم جداً */
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
+
+.btn.ghost {
+  border: 1px solid rgba(255,255,255,0.7);
+  color: #fff;
+}
+
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* =========================
+   MOBILE RESPONSIVE ANIMATION
+========================= */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-slide {
+    background-position: center top;
+    transform: scale(1.15); /* زوم أكثر شوي للموبايل */
+  }
+
+  @keyframes heroBgZoom {
+    0% { opacity: 0; transform: scale(1.18); }
+    100% { opacity: 1; transform: scale(1.03); }
+  }
+
   .hero-title {
-    font-size: 65px;
-    margin: 0 0 0.75rem;
-    line-height: 1.25;
+    font-size: 36px;
+    line-height: 1.3;
   }
-  
+
+  .hero-kicker {
+    font-size: 0.85rem;
+  }
+
   .hero-subtitle {
-    margin: 0 0 1.5rem;
-    max-width: 36rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
   }
-  
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-  
-  /* أزرار */
+
   .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    padding: 0.65rem 1.4rem;
-    font-size: 0.95rem;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: var(--transition-fast);
-    font-weight: 500;
-  }
-  
-  .btn.primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #ffffff;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
-  }
-  
-  .btn.primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-  }
-  
-  .btn.ghost {
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-  }
-  
-  .btn.ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-  
-  .btn.full-width {
     width: 100%;
+    justify-content: center;
   }
-  
-  /* نقاط السلايدر */
-  .hero-dots {
-    position: absolute;
-    inset-inline-start: 50%;
-    bottom: 1.75rem;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.4rem;
-    z-index: 3;
+
+  .hero-actions {
+    gap: 0.7rem;
   }
-  
-  .hero-dots button {
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    border: none;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: var(--transition-fast);
-  }
-  
-  .hero-dots button.active {
-    width: 22px;
-    background: linear-gradient(135deg, var(--accent), var(--primary));
-  }
+}
+
   
   /* الأقسام العامة */
   .section {
@@ -440,6 +573,10 @@
     border-radius: var(--radius-md);
     margin-bottom: 1rem;
   }
+
+
+
+
   
   
   /* بطاقات عامة */
@@ -1124,6 +1261,11 @@ font-size: 28px;
     margin: 0 0 0.75rem;
     line-height: 1.25;
   }
+  .hero-slide{
+    height: 90vh;
+
+  }
+  
   
   
     .nav-links.open {
