@@ -131,7 +131,7 @@
   }
   
   .logo img {
-    height: 60px;        /* الحجم المثالي للهيدر */
+    height: 150px;        /* الحجم المثالي للهيدر */
     width: auto;         /* يحافظ على النسبة */
     object-fit: contain; /* يمنع أي تمدد أو قص */
     display: block;
